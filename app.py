@@ -1,22 +1,32 @@
 import os
+from pyspark.sql import SparkSession
 
-from flask import Flask
-from flask import request
+def produce_pi(scale):
+    spark = SparkSession.builder.appName("PythonPi").getOrCreate()
+    n = 100000 * scale
+
+    def f(_):
+        from random import random
+        x = random()
+        y = random()
+        return 1 if x ** 2 + y ** 2 <= 1 else 0
+
+    count = spark.sparkContext.parallelize(
+        xrange(1, n + 1), scale).map(f).reduce(lambda x, y: x + y)
+    spark.stop()
+    pi = 4.0 * count / n
+    return pi
 
 
 
-app = Flask(__name__)
 
+def main():
+    scale = 2
+    pi = produce_pi(scale)
+    response = "Pi is roughly {}".format(pi)
 
-
-
-@app.route("/")
-def index():
-    return "Python Flask server running on OpenShift.."
-
-
+    print (response)
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host='0.0.0.0', port=port)
+    main()
