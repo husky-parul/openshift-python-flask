@@ -22,6 +22,7 @@ def produce_pi(scale):
 
 def main():
     scale = 2
+    print ("We are inside main")
     pi = produce_pi(scale)
     response = "Pi is roughly {}".format(pi)
 
@@ -29,4 +30,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    print ("This is point 1")
+    #main()
