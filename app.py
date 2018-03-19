@@ -38,6 +38,6 @@ if __name__ == "__main__":
     pi = produce_pi(scale)
     response = "Pi is roughly {}".format(pi)
 
-    return response
+    print ("******!!!!!!!!********** This is response",response)
     
     #main()
