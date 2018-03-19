@@ -27,17 +27,8 @@ def main():
     pi = produce_pi(scale)
     response = "Pi is roughly {}".format(pi)
 
-    print (response)
+    print ("******!!!!!!!!********** This is response", response)
 
 
 if __name__ == "__main__":
-    print ("This is point 1")
-    scale = 2
-    print ("We are inside main")
-
-    pi = produce_pi(scale)
-    response = "Pi is roughly {}".format(pi)
-
-    print ("******!!!!!!!!********** This is response",response)
-    
-    #main()
+    main()
