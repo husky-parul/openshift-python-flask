@@ -18,6 +18,29 @@ def lotsofcpu():
     
     data = "sum " + str(sum)
     return jsonify(data)
+
+
+
+@application.route("/memory")
+def lotsofmemory():
+    # do a lot of memory work
+    for i in range(200):
+        arr = [[1]*20 for i in range(2000)]
+        # print(len(arr[100]))
+        arr1 = [[1]*20 for i in range(2000)]
+        # print(len(arr1[110]))
+        arr2 = [[1]*20 for i in range(2000)]
+        # print(len(arr2[210]))
+        arr3 = [[1]*20 for i in range(2000)]
+        # print(len(arr3[310]))
+        arr4 = [[1]*20 for i in range(2000)]
+        # print(len(arr4[410]))
+        arr5 = [[1]*20 for i in range(2000)]
+        # print(len(arr5[510]))
+    
+    lengths = "arr =  " + str(len(arr)) + "arr1 =  " + str(len(arr1)) + "arr2 =  " + str(len(arr2)) + "arr3 =  " + str(len(arr3)) + "arr4 =  " + str(len(arr4)) + "arr5 =  " + str(len(arr5))
+
+    return jsonify(lengths)
     
 
 
